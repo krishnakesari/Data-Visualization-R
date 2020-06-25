@@ -27,15 +27,15 @@ hline <- function(y = 0, color = "gray") {
 # Setting up colors for scatter points
 colors <- c("darkgreen", "gold", "orange", "red", "darkred", "grey")
 
-fig <- plot_ly(x, x = ~`NET CMT AMT in Millions`, y = ~dis_perc, color = ~`DO RTNG SHRT DESC`,
-               text = ~`PROJ LGL NAME`,
+fig <- plot_ly(x, x = ~`NET CMT AMT in Millions`, y = ~y, color = ~`a`,
+               text = ~`NAME`,
                colors = colors, type = 'scatter', mode = 'markers',
-               hovertemplate = "<br>%{text} <br>Disbursement Percent (%): %{y} <br>Net Commitment ($M): %{x}", #Hover over text details
+               hovertemplate = "<br>%{text} <br>Percent (%): %{y} <br>Net Commitment ($M): %{x}", #Hover over text details
                marker = list(size = 10))
 # Setting up titles 
-fig <- fig %>% layout(title = 'Net Disbursement Amount',
-                      xaxis = list(title = "Net Commitment Amount (In Millions)"),
-                      yaxis = list(title = "Disbursement Percentage (%)"))
+fig <- fig %>% layout(title = 'Amount',
+                      xaxis = list(title = "Amount (In Millions)"),
+                      yaxis = list(title = "Percentage (%)"))
 # Adding grid lines to plot
 fig <- fig %>% layout(shapes = list(vline(1750), hline(50)))
 
