@@ -11,4 +11,8 @@ scatter <- vgsales %>%
 ggplotly(scatter)
 
 
-# Plotting a single variable
+# Plotting a Histogram
+vgsales %>%
+	plot_ly(x = ~Critic_Score) %>%
+	add_histogram()				  
+
