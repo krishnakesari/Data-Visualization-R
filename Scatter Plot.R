@@ -16,3 +16,9 @@ vgsales %>%
 	plot_ly(x = ~Critic_Score) %>%
 	add_histogram()				  
 
+# # Create a histogram of Critic_Score with at most 25 bins
+vgsales %>%
+	plot_ly(x = ~Critic_Score) %>%
+	add_histogram(nbinsx = 25)
+
+    
