@@ -21,4 +21,8 @@ vgsales %>%
 	plot_ly(x = ~Critic_Score) %>%
 	add_histogram(nbinsx = 25)
 
-    
+# Create a histogram with bins of width 10 between 0 and 100
+vgsales %>%
+  plot_ly(x = ~Critic_Score) %>%
+  add_histogram(xbins = list(0, 100, 10))
+
