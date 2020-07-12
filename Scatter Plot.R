@@ -37,5 +37,11 @@ genre_table %>%
 	add_bars()
 
 
+# Reorder the bars for Genre by n
+genre_table %>%
+	mutate(Genre = fct_reorder(Genre, n, .desc = TRUE)) %>%
+	plot_ly(x = ~Genre, y = ~n) %>% 
+	add_bars()                      
+
 
 
