@@ -24,5 +24,18 @@ vgsales %>%
 # Create a histogram with bins of width 10 between 0 and 100
 vgsales %>%
   plot_ly(x = ~Critic_Score) %>%
-  add_histogram(xbins = list(0, 100, 10))
+  add_histogram(xbins = list(start = 0, end = 100,   size = 10))
+
+
+# Create a frequency for Genre
+genre_table <- vgsales %>%
+	count(Genre)
+
+# Create a bar chart of Genre
+genre_table %>%
+	plot_ly(x = ~Genre, y = ~n) %>%
+	add_bars()
+
+
+
 
