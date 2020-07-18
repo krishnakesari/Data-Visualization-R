@@ -59,5 +59,3 @@ vgsales2016 %>%
   add_markers()
 
 
-# Customize Layout
-
