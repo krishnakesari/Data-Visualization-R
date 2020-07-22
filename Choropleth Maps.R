@@ -18,4 +18,13 @@ senate_winners %>%
   layout(geo = list(scope = 'usa')) %>% 
   hide_colorbar()
 
-  
+  # Map President Trump's rallies in 2018
+rallies2018 %>%
+  plot_geo(locationmode = 'USA-states') %>%
+  add_markers(
+    x = ~long, y = ~lat, size = ~no.speakers,  
+    hoverinfo = "text", text = ~paste(city, state, sep = ",")
+  ) %>%
+  layout(tile = "2018 Trump Rallies", 
+      geo = list(scope = 'usa'))
+
