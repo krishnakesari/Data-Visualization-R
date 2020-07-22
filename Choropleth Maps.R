@@ -28,3 +28,19 @@ rallies2018 %>%
   layout(title = "2018 Trump Rallies", 
       geo = list(scope = 'usa'))
 
+# Customize the geo layout
+g <- list(scope = 'usa', 
+          showland = TRUE, landcolor = toRGB("gray90"),
+          showlakes = TRUE, lakecolor = toRGB("white"),
+          showsubunit = TRUE, subunitcolor = toRGB("white"))
+
+# Apply the geo layout to the map
+rallies2018 %>%
+  plot_geo(locationmode = 'USA-states') %>%
+  add_markers(
+    x = ~long, y = ~lat, size = ~no.speakers, 
+    hoverinfo = "text", text = ~paste(city, state, sep = ",")
+  ) %>%
+  layout(title = "2018 Trump Rallies", geo = g)
+
+  
