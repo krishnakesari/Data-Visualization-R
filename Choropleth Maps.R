@@ -25,6 +25,6 @@ rallies2018 %>%
     x = ~long, y = ~lat, size = ~no.speakers,  
     hoverinfo = "text", text = ~paste(city, state, sep = ",")
   ) %>%
-  layout(tile = "2018 Trump Rallies", 
+  layout(title = "2018 Trump Rallies", 
       geo = list(scope = 'usa'))
 
