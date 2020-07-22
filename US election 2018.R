@@ -26,3 +26,17 @@ fundraising %>%
   layout(xaxis = list(title = "Total contributions received"),
          title = "Fundraising for 2018 Senate races")
 
+# Create a dotplot of the top 15 Senate campaigns
+fundraising %>%
+  filter(office == "S") %>%
+  top_n(15, wt = receipts) %>%
+  plot_ly(x = ~receipts, y = ~fct_reorder(state, receipts),
+          color = ~fct_drop(party),
+          hoverinfo = "text",
+          text = ~paste("Candidate:", name, "<br>",
+                        "Party:", party, "<br>",
+                        "Receipts:", receipts, "<br>",
+                        "Disbursements:", disbursement)) %>%
+  add_markers(colors = c("blue", "red")) 
+
+  
