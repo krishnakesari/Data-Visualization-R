@@ -5,4 +5,17 @@ turnout %>%
   add_trace(z = ~change, locations = ~state.abbr) %>%
   layout(geo = list(scope = 'usa'))
 
+  # Create a choropleth map displaying the Senate results
+senate_winners %>%
+  plot_geo(locationmode = 'USA-states') %>%
+  add_trace(z = ~as.numeric(party),locations = ~state,
+    colors = c('dodgerblue', 'mediumseagreen', 'tomato'),
+    hoverinfo = "text",
+    text = ~paste("Candidate:", name, "<br>",
+                  "Party:", party, "<br>",
+                  "% vote:", round(pct.vote, 1))
+  ) %>%
+  layout(geo = list(scope = 'usa')) %>% 
+  hide_colorbar()
+
   
