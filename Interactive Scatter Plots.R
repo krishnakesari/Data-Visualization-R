@@ -1,6 +1,7 @@
 # Create a SPLOM of NA_Sales, EU_Sales, and JP_Sales
 library(readr)
 library(plotly)
+library(dplyr)
 
 vgsales <- read.csv("vgsales.csv")
 vgsales2016 <- vgsales %>% filter(Year == "2016")
